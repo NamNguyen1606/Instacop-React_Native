@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import {Icon, ButtonGroup} from 'react-native-elements';
+
 export default class DetailProduct extends Component {
   state = {
     loveCheck: 'heart',
@@ -12,10 +13,8 @@ export default class DetailProduct extends Component {
       style={{
         width: 25,
         height: 25,
-        backgroundColor: 'blue',
+        backgroundColor: '#DBB690',
         borderRadius: 50,
-        borderColor: 'black',
-        borderWidth: 2,
       }}
     />
   );
@@ -25,12 +24,17 @@ export default class DetailProduct extends Component {
       style={{
         width: 30,
         height: 30,
-        backgroundColor: 'red',
+        backgroundColor: '#307AFF',
         borderRadius: 50,
-        borderColor: 'black',
-        borderWidth: 2,
       }}>
-      <Icon solid name="check" type="font-awesome" color="black" size={25} />
+      <Icon
+        solid
+        name="check"
+        type="font-awesome"
+        color="white"
+        size={20}
+        style={{paddingTop: 5}}
+      />
     </View>
   );
   color3 = () => (
@@ -38,10 +42,8 @@ export default class DetailProduct extends Component {
       style={{
         width: 30,
         height: 30,
-        backgroundColor: 'yellow',
+        backgroundColor: '#F89503',
         borderRadius: 50,
-        borderColor: 'black',
-        borderWidth: 2,
       }}
     />
   );
@@ -88,19 +90,25 @@ export default class DetailProduct extends Component {
             pagingEnabled={true}>
             <Image
               style={style.img}
-              source={require('C:/Users/Nam Nguyen/AndroidStudioProjects/React_Native/project_a/src/assets/image/balen.jpg')}
+              source={{
+                uri:
+                  'https://www.ikea.com/nl/en/images/products/svenbertil-chair-black-broringe-black__0871040_PE620798_S5.JPG?f=xxs',
+              }}
             />
             <Image
               style={style.img}
-              source={require('C:/Users/Nam Nguyen/AndroidStudioProjects/React_Native/project_a/src/assets/image/balen.jpg')}
+              source={{
+                uri:
+                  'https://www.ikea.com/nl/en/images/products/svenbertil-chair-black-broringe-black__0874171_PE620844_S5.JPG?f=xxs',
+              }}
             />
           </ScrollView>
         </View>
         <View style={style.bottomContainer}>
-          <Text style={style.nameProduct}>Balenciaga Track V3.0</Text>
+          <Text style={style.nameProduct}>SVENBERTIL</Text>
           <View style={{flexDirection: 'row'}}>
-            <Text style={style.priceProduct}>120,000 VND</Text>
-            <Text style={style.salePrice}>120,000 VND</Text>
+            <Text style={style.priceProduct}>$59.25</Text>
+            <Text style={style.salePrice}>$45.95</Text>
           </View>
           <ButtonGroup
             onPress={() => {}}
@@ -147,8 +155,11 @@ const style = StyleSheet.create({
   img: {
     flex: 1,
     width: Dimensions.get('window').width - 40,
-    height: (Dimensions.get('window').height / 10) * 6,
-    resizeMode: 'stretch',
+    height: (Dimensions.get('window').height / 10) * 5,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    resizeMode: 'contain',
   },
   header: {
     height: 50,

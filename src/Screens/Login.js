@@ -118,7 +118,7 @@ export default class Login extends Component {
               ]}
               activeOpacity={0.8}
               onPress={() => {
-                this.props.navigation.navigate('ListScreen');
+                this.props.navigation.navigate('MainPage');
               }}>
               <Text style={[style.TitleSubmitStb, {color: 'black'}]}>
                 Register
