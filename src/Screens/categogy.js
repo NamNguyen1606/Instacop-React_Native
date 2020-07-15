@@ -26,6 +26,12 @@ export default class Category extends Component {
             imgUrl="https://www.ikea.com/us/en/images/products/skurup-pendant-lamp__0880630_PE681113_S5.JPG?f=xxs"
             onPress={this.onPress}
           />
+          <CategoryCard
+            name="Furniture"
+            quantity={920}
+            imgUrl="https://www.ikea.com/us/en/images/products/tommaryd-table-anthracite__0742465_PE742611_S5.JPG?f=xs"
+            onPress={this.onPress}
+          />
         </View>
       </View>
     );

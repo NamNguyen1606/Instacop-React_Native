@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import {ProductData} from '../Ultils/productData';
@@ -16,7 +17,9 @@ export default class ListScreen extends Component {
   };
   render() {
     return (
-      <ScrollView style={{flex: 1, backgroundColor: 'white'}}>
+      <ScrollView
+        style={{backgroundColor: 'white'}}
+        contentContainerStyle={{flexGrow: 1}}>
         <View style={style.headerContainer}>
           <Image
             style={{
@@ -55,7 +58,8 @@ export default class ListScreen extends Component {
             <Text style={style.saleType}>70% off</Text>
           </View>
         </View>
-        <View style={style.productContainer}>
+        {/* TODO: New Arrivals */}
+        <View>
           <View
             style={{
               flexDirection: 'row',
@@ -69,26 +73,78 @@ export default class ListScreen extends Component {
               <Text>Show All</Text>
             </TouchableOpacity>
           </View>
-          <ScrollView style={{marginLeft: 20, marginTop: 10}} horizontal={true}>
-            <ProductCard
-              name="RENBERGET"
-              price="29.95"
-              imgUrl="https://www.ikea.com/nl/en/images/products/eldberget-malskaer-swivel-chair-beige-black__0814555_PE772638_S5.JPG?f=xxs"
-              onPress={this.onPress}
-            />
-            <ProductCard
-              name="SKÅLBERG / SPORREN"
-              price="45.45"
-              imgUrl="https://www.ikea.com/us/en/images/products/ranarp-pendant-lamp__0880552_PE613965_S5.JPG?f=xxs"
-              onPress={this.onPress}
-            />
-            <ProductCard
-              name="FORSÅ"
-              price="19.00"
-              imgUrl="https://www.ikea.com/nl/en/images/products/forsa-work-lamp-white__0879484_PE721951_S5.JPG?f=xxs"
-              onPress={this.onPress}
-            />
-          </ScrollView>
+          <View style={{marginVertical: 15}}>
+            <ScrollView
+              style={{
+                marginLeft: 20,
+                backgroundColor: 'white',
+                flexWrap: 'wrap',
+              }}
+              horizontal={true}>
+              <ProductCard
+                name="RENBERGET"
+                price="29.95"
+                imgUrl="https://www.ikea.com/nl/en/images/products/eldberget-malskaer-swivel-chair-beige-black__0814555_PE772638_S5.JPG?f=xxs"
+                onPress={this.onPress}
+              />
+              <ProductCard
+                name="SKÅLBERG / SPORREN"
+                price="45.45"
+                salePrice='29.95'
+                imgUrl="https://www.ikea.com/us/en/images/products/ranarp-pendant-lamp__0880552_PE613965_S5.JPG?f=xxs"
+                onPress={this.onPress}
+              />
+              <ProductCard
+                name="FORSÅ"
+                price="19.00"
+                imgUrl="https://www.ikea.com/nl/en/images/products/forsa-work-lamp-white__0879484_PE721951_S5.JPG?f=xxs"
+                onPress={this.onPress}
+              />
+            </ScrollView>
+          </View>
+          {/* TODO: New Arrivals */}
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              backgroundColor: 'transparent',
+              marginHorizontal: 20,
+            }}>
+            <Text style={{fontSize: 20, fontWeight: '700'}}>Top Trend</Text>
+            <TouchableOpacity activeOpacity={0.5} onPress={() => {}}>
+              <Text>Show All</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{marginVertical: 15}}>
+            <ScrollView
+              style={{
+                marginLeft: 20,
+                backgroundColor: 'white',
+                flexWrap: 'wrap',
+                height: 180,
+              }}
+              horizontal={true}>
+              <ProductCard
+                name="SVENSHULT"
+                price="29.99"
+                salePrice="19.95"
+                imgUrl="https://www.ikea.com/us/en/images/products/svenshult-wall-shelf-with-storage__0676622_PE718735_S5.JPG?f=xs"
+                onPress={this.onPress}
+              />
+              <ProductCard
+                name="SPORREN"
+                price="26.45"
+                imgUrl="https://www.ikea.com/us/en/images/products/hektar-wall-clamp-spotlight-w-light-bulb__0879363_PE618774_S5.JPG?f=xs"
+                onPress={this.onPress}
+              />
+              <ProductCard
+                name="BINTJE"
+                price="1.95"
+                imgUrl="https://www.ikea.com/us/en/images/products/bintje-plant-pot__0899418_PE724767_S5.JPG?f=xs"
+                onPress={this.onPress}
+              />
+            </ScrollView>
+          </View>
         </View>
       </ScrollView>
     );
@@ -101,9 +157,6 @@ const style = StyleSheet.create({
     height: Dimensions.get('window').height * (3 / 5),
     width: '100%',
     backgroundColor: 'white',
-  },
-  productContainer: {
-    height: Dimensions.get('window').height * (2 / 5),
   },
   subHeader: {
     flex: 1,

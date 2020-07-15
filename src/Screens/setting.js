@@ -3,7 +3,11 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Rating, Icon} from 'react-native-elements';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  TouchableHighlight,
+} from 'react-native-gesture-handler';
 export default class SettingPage extends Component {
   onPress = () => {
     alert('onPress');
@@ -12,11 +16,6 @@ export default class SettingPage extends Component {
     return (
       <View style={style.container}>
         <View style={style.header}>
-          {/* <MaterialCommunityIcons
-            name="keyboard-backspace"
-            color="#46505D"
-            size={30}
-          /> */}
           <Text style={style.headerStyle}>Settings</Text>
         </View>
         {/* //TODO: User */}
@@ -72,17 +71,23 @@ export default class SettingPage extends Component {
               Language
             </Text>
           </View>
-          <View
-            style={{
-              height: 40,
-              width: 100,
-              backgroundColor: '#00D58C',
-              borderRadius: 5,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Text style={{fontSize: 18, color: 'white'}}>Change</Text>
-          </View>
+          <TouchableOpacity
+            onPress={() => {
+              alert('Click');
+            }}
+            activeOpacity={0.7}>
+            <View
+              style={{
+                height: 40,
+                width: 100,
+                backgroundColor: '#00D58C',
+                borderRadius: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text style={{fontSize: 18, color: 'white'}}>Change</Text>
+            </View>
+          </TouchableOpacity>
         </View>
         {/* TODO: Function */}
         <View style={style.functionContainer}>
@@ -183,8 +188,9 @@ const style = StyleSheet.create({
 class FunctionButton extends Component {
   render() {
     return (
-      <TouchableOpacity
-        activeOpacity={0.7}
+      <TouchableHighlight
+        activeOpacity={0.9}
+        underlayColor="grey"
         onPress={this.props.onPress}
         style={{height: 75}}>
         <View style={style.subFunctionContainer}>
@@ -197,7 +203,7 @@ class FunctionButton extends Component {
             size={18}
           />
         </View>
-      </TouchableOpacity>
+      </TouchableHighlight>
     );
   }
 }

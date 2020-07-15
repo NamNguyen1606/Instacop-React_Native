@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import React, {Component} from 'react';
@@ -50,6 +51,7 @@ export default class Login extends Component {
               style={style.TextInputPassword}
               placeholder="Password"
               placeholderTextColor="grey"
+              secureTextEntry={true}
               onChangeText={val => this.handlePassword(val)}
             />
 
@@ -110,19 +112,56 @@ export default class Login extends Component {
               onPress={this.login}>
               <Text style={style.TitleSubmitStb}>Sign In</Text>
             </TouchableOpacity>
-
+            <TouchableOpacity activeOpacity={0.7}>
+              <View
+                style={{
+                  alignItems: 'center',
+                  marginBottom: 100,
+                  marginTop: 20,
+                }}>
+                <Text
+                  style={{
+                    fontSize: 17,
+                    fontWeight: '600',
+                    alignContent: 'center',
+                  }}>
+                  Forgot your password?
+                </Text>
+              </View>
+            </TouchableOpacity>
             <TouchableOpacity
               style={[
                 style.SubmitButton,
-                {marginTop: 0, backgroundColor: '#EFEFEF'},
+                {
+                  marginTop: 0,
+                  backgroundColor: 'white',
+                  borderColor: '#5795FD',
+                  borderWidth: 2,
+                },
               ]}
               activeOpacity={0.8}
               onPress={() => {
                 this.props.navigation.navigate('MainPage');
               }}>
-              <Text style={[style.TitleSubmitStb, {color: 'black'}]}>
-                Register
+              <Text
+                style={[
+                  style.TitleSubmitStb,
+                  {color: '#5795FD', fontWeight: '700'},
+                ]}>
+                LOGIN WITH FACEBOOK
               </Text>
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={0.7}>
+              <View style={{alignItems: 'center', marginBottom: 20}}>
+                <Text
+                  style={{
+                    fontSize: 17,
+                    fontWeight: '600',
+                    alignContent: 'center',
+                  }}>
+                  Don't have an account? Sign Up
+                </Text>
+              </View>
             </TouchableOpacity>
           </View>
         </View>
@@ -150,6 +189,7 @@ const style = StyleSheet.create({
   },
   ContainerType: {
     marginHorizontal: 40,
+    marginBottom: 20,
     height: 55,
     backgroundColor: 'grey',
     flexDirection: 'row',
@@ -163,7 +203,7 @@ const style = StyleSheet.create({
     marginLeft: 40,
   },
   TextInputUserName: {
-    borderWidth: 1,
+    borderBottomWidth: 1,
     borderColor: 'black',
     borderRadius: 5,
     marginHorizontal: 40,
@@ -172,7 +212,7 @@ const style = StyleSheet.create({
     paddingHorizontal: 20,
   },
   TextInputPassword: {
-    borderWidth: 1,
+    borderBottomWidth: 1,
     borderColor: 'black',
     borderRadius: 5,
     marginHorizontal: 40,

@@ -34,10 +34,12 @@ export default class App extends Component {
             }}
           />
           <Stack.Screen
-          name="DetailProduct"
-          component={DetailProduct}
-          options={{headerShown: false}}
-        />
+            name="DetailProduct"
+            component={DetailProduct}
+            options={{
+              headerShown: false,
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );
